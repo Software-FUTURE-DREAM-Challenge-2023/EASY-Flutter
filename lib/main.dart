@@ -1,14 +1,16 @@
 import 'package:easy_flutter/core/view/splash_screen.dart';
+import 'package:easy_flutter/image/ui/view/image_screen.dart';
+import 'package:easy_flutter/main/ui/view/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() async {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: const SplashScreen(),
+      child: SplashScreen(delay: true),
     );
   }
 }
